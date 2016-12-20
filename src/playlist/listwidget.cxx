@@ -26,6 +26,11 @@ PlayListWidget::PlayListWidget() {
 	removeItem = new QToolButton;
 	clearItems = new QToolButton;
 	play = new QToolButton;
+
+    addItem->setToolTip("Add content to the playlist");
+    removeItem->setToolTip("Remove an item from the playlist.");
+    clearItems->setToolTip("Clear the playlist.");
+    play->setToolTip("Play the items below.");
 	
 	addItem->setIcon(QIcon::fromTheme("list-add"));
 	removeItem->setIcon(QIcon::fromTheme("window-close"));
