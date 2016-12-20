@@ -14,7 +14,7 @@ Vars globalVars;
 int main(int argc, char *argv[]) {
     QApplication app(argc,argv);
 
-    QCoreApplication::setOrganizationName("pdf4664");
+    QCoreApplication::setOrganizationName("CppMediaPlayer");
     QCoreApplication::setApplicationName("CppMediaPlayer");
 
     globalVars.window = new Window();
