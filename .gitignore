@@ -1,0 +1,11 @@
+/bin
+/obj
+Makefile
+*.user
+/moc
+*.log
+*.deb
+qrc_odyssey-media-player.cpp
+/build
+*.directory
+*.user
