@@ -135,8 +135,6 @@ void PlayListWidget::newPlayList() {
     }
 }
 
-#include <iostream>
-
 void PlayListWidget::openPlayList() {
     if (playlistItems->count()>0) {
         QList<QString> *currentItems = new QList<QString>();
