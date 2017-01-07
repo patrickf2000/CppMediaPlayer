@@ -37,7 +37,8 @@ SOURCES = \
     src/settings/dialog.cxx \
     src/settings/get_settings.cxx \
     src/settings/volume.cxx \
-    src/settings/volume_dial.cxx
+    src/settings/volume_dial.cxx \
+    src/settings/taskbar_icon.cxx
 
 HEADERS = \
     src/actions.hh \
@@ -61,4 +62,5 @@ HEADERS = \
     src/settings/dialog.hh \
     src/settings/get_settings.hh \
     src/settings/volume.hh \
-    src/settings/volume_dial.hh
+    src/settings/volume_dial.hh \
+    src/settings/taskbar_icon.hh

@@ -5,6 +5,7 @@
 
 #include "dialog.hh"
 #include "volume.hh"
+#include "taskbar_icon.hh"
 
 SettingsDialog::SettingsDialog() {
 	this->setWindowTitle("Settings");
@@ -12,13 +13,21 @@ SettingsDialog::SettingsDialog() {
 	
 	mainLayout = new QVBoxLayout;
 	this->setLayout(mainLayout);
+
+    secondWidget = new QWidget;
+    secondLayout = new QVBoxLayout;
+    secondWidget->setLayout(secondLayout);
+    mainLayout->addWidget(secondWidget,0,Qt::AlignTop);
 	
 	volume = new Volume;
+    tsicon = new TaskbarIcon;
 	
-	mainLayout->addWidget(volume,5,Qt::AlignTop);
+    secondLayout->addWidget(volume);
+    secondLayout->addWidget(tsicon);
 }
 
 SettingsDialog::~SettingsDialog() {
-	delete mainLayout;
+    delete secondLayout;
 	delete volume;
+    delete tsicon;
 }

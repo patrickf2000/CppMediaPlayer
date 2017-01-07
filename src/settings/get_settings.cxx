@@ -9,3 +9,9 @@ int Settings::getVolume() {
     int vol = settings.value("volume",10).toInt();
     return vol;
 }
+
+bool Settings::showTaskbarIcon() {
+    QSettings settings;
+    bool show = settings.value("taskbar_icon",true).toBool();
+    return show;
+}

@@ -14,6 +14,7 @@
 #include "viewmenu.hh"
 #include "helpmenu.hh"
 #include "actions.hh"
+#include "settings/get_settings.hh"
 
 Window::Window() {
     this->setWindowTitle("Media Player");
@@ -51,8 +52,10 @@ Window::Window() {
     controller = new ControlBar;
     this->addToolBar(Qt::BottomToolBarArea,controller);
 
-    systray = new SysTray;
-    systray->show();
+    if (Settings::showTaskbarIcon()) {
+        systray = new SysTray;
+        systray->show();
+    }
     
     isHeadless = false;
 }
