@@ -169,8 +169,6 @@ void PlayListWidget::openPlayList() {
             msg.setText("The selected file could not be opened.");
             msg.exec();
         }
-    } else {
-        std::cout << "error" << std::endl;
     }
 }
 

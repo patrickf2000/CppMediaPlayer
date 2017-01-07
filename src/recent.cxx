@@ -19,20 +19,19 @@ using std::endl;
 Recent::Recent() {
 	recentItems = new QVector<QString>();
 	QString path = QDir::homePath();
-	path+="/.odyssey/media_player";
-	if (QDir(path).exists()) {
-		path+="/recent";
-		if (QFile(path).exists()) {
-			ifstream reader(path.toStdString().c_str());
-			if (reader.is_open()) {
-				string line = "";
-				while (getline(reader,line)) {
-					recentItems->push_back(QString::fromStdString(line));
-				}
-				reader.close();
-			}
-		}
+    path+="/.cpp-media-player";
+    if (!QDir(path).exists()) {
+        QDir().mkpath(path);
 	}
+    path+="/recent";
+    ifstream reader(path.toStdString().c_str());
+    if (reader.is_open()) {
+        string line = "";
+        while (getline(reader,line)) {
+            recentItems->push_back(QString::fromStdString(line));
+        }
+        reader.close();
+    }
 }
 
 Recent::~Recent() {
@@ -52,7 +51,7 @@ QVector<QString> *Recent::getRecentItems() {
 
 void Recent::write() {
 	QString path1 = QDir::homePath();
-	path1+="/.odyssey/media_player";
+    path1+="/.cpp-media-player";
 	if (not QDir(path1).exists()) {
 		QDir(path1).mkdir(path1);
 	}
