@@ -41,6 +41,7 @@ set(SETTINGS
 	src/settings/get_settings.cxx
 	src/settings/volume_dial.cxx
 	src/settings/volume.cxx
+        src/settings/taskbar_icon.cxx
 )
 
 add_executable(cpp-media-player
