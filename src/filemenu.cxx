@@ -17,9 +17,19 @@ QMenu *FileMenu::recent;
 FileMenu::FileMenu() {
 	this->setTitle("File");
 
-	open = new QAction(QIcon::fromTheme("document-open"),"Open",this);
+    open = new QAction("Open",this);
 	recent = new QMenu("Recent");
-	quit = new QAction(QIcon::fromTheme("window-close"),"Quit",this);
+    quit = new QAction("Quit",this);
+
+    QPixmap openIcon(":/icons/document-open.png");
+    QPixmap quitIcon(":/icons/window-close.png");
+#ifdef NO_THEME_ICONS
+    open->setIcon(openIcon);
+    quit->setIcon(quitIcon);
+#else
+    open->setIcon(QIcon::fromTheme("document-open",openIcon));
+    quit->setIcon(QIcon::fromTheme("window-close",quitIcon));
+#endif
 
 	connect(open,SIGNAL(triggered(bool)),this,SLOT(onOpenClicked()));
 	connect(quit,SIGNAL(triggered(bool)),qApp,SLOT(quit()));
