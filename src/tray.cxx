@@ -16,12 +16,31 @@ SysTray::SysTray() {
     contextMenu = new QMenu;
     this->setContextMenu(contextMenu);
 
-    play = new QAction(QIcon::fromTheme("media-playback-start"),"Play",contextMenu);
-    pause = new QAction(QIcon::fromTheme("media-playback-pause"),"Pause",contextMenu);
-    stop = new QAction(QIcon::fromTheme("media-playback-stop"),"Stop",contextMenu);
-    open = new QAction(QIcon::fromTheme("document-open"),"Open",contextMenu);
+    play = new QAction("Play",contextMenu);
+    pause = new QAction("Pause",contextMenu);
+    stop = new QAction("Stop",contextMenu);
+    open = new QAction("Open",contextMenu);
     hideWindow = new QAction("Hide Window",contextMenu);
-    quit = new QAction(QIcon::fromTheme("window-close"),"Quit",contextMenu);
+    quit = new QAction("Quit",contextMenu);
+
+    QPixmap documentOpenIcon(":/icons/document-open.png");
+    QPixmap playIcon(":/icons/media-playback-start.png");
+    QPixmap pauseIcon(":/icons/media-playback-pause.png");
+    QPixmap stopIcon(":/icons/media-playback-stop.png");
+    QPixmap quitIcon(":/icons/window-close.png");
+#ifdef NO_THEME_ICONS
+    play->setIcon(playIcon);
+    pause->setIcon(pauseIcon);
+    stop->setIcon(stopIcon);
+    open->setIcon(documentOpenIcon);
+    quit->setIcon(quitIcon);
+#else
+    play->setIcon(QIcon::fromTheme("media-playback-start",playIcon));
+    pause->setIcon(QIcon::fromTheme("media-playback-pause",pauseIcon));
+    stop->setIcon(QIcon::fromTheme("media-playback-stop",stopIcon));
+    open->setIcon(QIcon::fromTheme("document-open",documentOpenIcon));
+    quit->setIcon(QIcon::fromTheme("window-close",quitIcon));
+#endif
 
     hideWindow->setCheckable(true);
 
