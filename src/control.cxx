@@ -4,6 +4,7 @@
 #include <QToolButton>
 #include <QLabel>
 #include <QSlider>
+#include <QPixmap>
 
 #include "control.hh"
 #include "actions.hh"
@@ -22,10 +23,21 @@ ControlBar::ControlBar() {
     volume->setMaximum(100);
     volume->setValue(Settings::getVolume());
 
-    Open->setIcon(QIcon::fromTheme("document-open"));
-    Play->setIcon(QIcon::fromTheme("media-playback-start"));
-    Pause->setIcon(QIcon::fromTheme("media-playback-pause"));
-    Stop->setIcon(QIcon::fromTheme("media-playback-stop"));
+    QPixmap documentOpenIcon(":/icons/document-open.png");
+    QPixmap playIcon(":/icons/media-playback-start.png");
+    QPixmap pauseIcon(":/icons/media-playback-pause.png");
+    QPixmap stopIcon(":/icons/media-playback-stop.png");
+#ifdef NO_THEME_ICONS
+    Open->setIcon(documentOpenIcon);
+    Play->setIcon(playIcon);
+    Pause->setIcon(pauseIcon);
+    Stop->setIcon(stopIcon);
+#else
+    Open->setIcon(QIcon::fromTheme("document-open",documentOpenIcon));
+    Play->setIcon(QIcon::fromTheme("media-playback-start",playIcon));
+    Pause->setIcon(QIcon::fromTheme("media-playback-pause",pauseIcon));
+    Stop->setIcon(QIcon::fromTheme("media-playback-stop",stopIcon));
+#endif
 
     connect(Open,SIGNAL(clicked(bool)),this,SLOT(onOpenClicked()));
     connect(Play,SIGNAL(clicked(bool)),this,SLOT(onPlayClicked()));

@@ -3,6 +3,7 @@
 #include <QKeyEvent>
 #include <QApplication>
 #include <QSplitter>
+#include <QPixmap>
 
 #include "window.hh"
 #include "videopane.hh"
@@ -19,8 +20,14 @@
 Window::Window() {
     this->setWindowTitle("Media Player");
     this->resize(800,700);
-    this->setWindowIcon(QIcon::fromTheme("applications-multimedia"));
     this->setAttribute(Qt::WA_QuitOnClose);
+
+    QPixmap winIcon(":/icons/cpp-media-player.png");
+#ifdef NO_THEME_ICONS
+    this->setWindowIcon(winIcon);
+#else
+    this->setWindowIcon(QIcon::fromTheme("applications-multimedia",winIcon));
+#endif
 
     menubar = new QMenuBar;
     this->setMenuBar(menubar);

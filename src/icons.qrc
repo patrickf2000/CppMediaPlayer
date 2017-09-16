@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/cpp-media-player.png</file>
+        <file>icons/document-open.png</file>
+        <file>icons/media-playback-stop.png</file>
+        <file>icons/media-playback-pause.png</file>
+        <file>icons/media-playback-start.png</file>
+    </qresource>
+</RCC>

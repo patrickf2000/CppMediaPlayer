@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.0.0)
 project(CppMediaPlayer)
 
 set(BASE_SRC
+    icons.qrc
 	actions.cxx
 	control.cxx
 	editmenu.cxx
