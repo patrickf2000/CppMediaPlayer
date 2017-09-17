@@ -7,5 +7,6 @@
         <file>icons/media-playback-start.png</file>
         <file>icons/window-close.png</file>
         <file>icons/preferences-system.png</file>
+        <file>icons/view-fullscreen.png</file>
     </qresource>
 </RCC>
