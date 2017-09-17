@@ -4,14 +4,22 @@
 #include <QAction>
 #include <QMessageBox>
 #include <QApplication>
+#include <QPixmap>
 
 #include "helpmenu.hh"
 
 HelpMenu::HelpMenu() {
     this->setTitle("Help");
 
-    about = new QAction(QIcon::fromTheme("help-about"),"About",this);
+    about = new QAction("About",this);
     aboutQt = new QAction("About Qt",this);
+
+    QPixmap aboutIcon(":/icons/help-about.png");
+#ifdef NO_THEME_ICONS
+    about->setIcon(aboutIcon);
+#else
+    about->setIcon(QIcon::fromTheme("help-about",aboutIcon));
+#endif
 
     connect(about,SIGNAL(triggered(bool)),this,SLOT(onAboutClicked()));
     connect(aboutQt,SIGNAL(triggered(bool)),qApp,SLOT(aboutQt()));

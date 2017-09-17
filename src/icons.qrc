@@ -8,5 +8,6 @@
         <file>icons/window-close.png</file>
         <file>icons/preferences-system.png</file>
         <file>icons/view-fullscreen.png</file>
+        <file>icons/help-about.png</file>
     </qresource>
 </RCC>
