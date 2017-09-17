@@ -6,5 +6,6 @@
         <file>icons/media-playback-pause.png</file>
         <file>icons/media-playback-start.png</file>
         <file>icons/window-close.png</file>
+        <file>icons/preferences-system.png</file>
     </qresource>
 </RCC>
