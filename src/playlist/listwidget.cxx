@@ -10,6 +10,7 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QTextStream>
+#include <QPixmap>
 
 #include "listwidget.hh"
 #include "../videopane.hh"
@@ -38,11 +39,22 @@ PlayListWidget::PlayListWidget() {
     removeItem->setToolTip("Remove an item from the playlist.");
     clearItems->setToolTip("Clear the playlist.");
     play->setToolTip("Play the items below.");
-	
-	addItem->setIcon(QIcon::fromTheme("list-add"));
-	removeItem->setIcon(QIcon::fromTheme("window-close"));
-	clearItems->setIcon(QIcon::fromTheme("edit-clear"));
-	play->setIcon(QIcon::fromTheme("media-playback-start"));
+
+    QPixmap addItemIcon(":/icons/list-add.png");
+    QPixmap removeItemIcon(":/icons/window-close.png");
+    QPixmap clearItemsIcon(":/icons/edit-clear.png");
+    QPixmap playIcon(":/icons/media-playback-start.png");
+#ifdef NO_THEME_ICONS
+    addItem->setIcon(addItemIcon);
+    removeItem->setIcon(removeItemIcon);
+    clearItems->setIcon(clearItemsIcon);
+    play->setIcon(playIcon);
+#else
+    addItem->setIcon(QIcon::fromTheme("list-add",addItemIcon));
+    removeItem->setIcon(QIcon::fromTheme("window-close",removeItemIcon));
+    clearItems->setIcon(QIcon::fromTheme("edit-clear",clearItemsIcon));
+    play->setIcon(QIcon::fromTheme("media-playback-start",playIcon));
+#endif
 	
 	connect(addItem,&QToolButton::clicked,this,&PlayListWidget::onAddItemClicked);
 	connect(removeItem,&QToolButton::clicked,this,&PlayListWidget::onRemoveItemClicked);
@@ -71,10 +83,21 @@ PlayListWidget::PlayListWidget() {
     saveList->setToolTip("Save the playlist.");
     saveListAs->setToolTip("Save the current playlist as...");
 
-    newList->setIcon(QIcon::fromTheme("document-new"));
-    openList->setIcon(QIcon::fromTheme("document-open"));
-    saveList->setIcon(QIcon::fromTheme("document-save-as"));
-    saveListAs->setIcon(QIcon::fromTheme("document-save-as"));
+    QPixmap newListIcon(":/icons/document-new.png");
+    QPixmap openListIcon(":/icons/document-open.png");
+    QPixmap saveListIcon(":/icons/document-save.png");
+    QPixmap saveListAsIcon(":/icons/document-save-as.png");
+#ifdef NO_THEME_ICONS
+    newList->setIcon(newListIcon);
+    openList->setIcon(openListIcon);
+    saveList->setIcon(saveListIcon);
+    saveListAs->setIcon(saveListAsIcon);
+#else
+    newList->setIcon(QIcon::fromTheme("document-new",newListIcon));
+    openList->setIcon(QIcon::fromTheme("document-open",openListIcon));
+    saveList->setIcon(QIcon::fromTheme("document-save",saveListIcon));
+    saveListAs->setIcon(QIcon::fromTheme("document-save-as",saveListAsIcon));
+#endif
 
     connect(newList,&QToolButton::clicked,this,&PlayListWidget::onNewListClicked);
     connect(openList,&QToolButton::clicked,this,&PlayListWidget::onOpenListClicked);
