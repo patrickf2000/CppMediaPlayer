@@ -29,13 +29,15 @@ Window::Window() {
     this->setWindowIcon(QIcon::fromTheme("applications-multimedia",winIcon));
 #endif
 
-    menubar = new QMenuBar;
-    this->setMenuBar(menubar);
+    FileMenu *fileMenu = new FileMenu;
+    EditMenu *editMenu = new EditMenu;
+    ViewMenu *viewMenu = new ViewMenu;
+    HelpMenu *helpMenu = new HelpMenu;
 
-    menubar->addMenu(new FileMenu);
-    menubar->addMenu(new EditMenu);
-    menubar->addMenu(new ViewMenu);
-    menubar->addMenu(new HelpMenu);
+    this->menuBar()->addMenu(fileMenu);
+    this->menuBar()->addMenu(editMenu);
+    this->menuBar()->addMenu(viewMenu);
+    this->menuBar()->addMenu(helpMenu);
     
     QSplitter *splitter = new QSplitter;
     this->setCentralWidget(splitter);
