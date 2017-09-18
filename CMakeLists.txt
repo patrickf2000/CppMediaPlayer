@@ -5,10 +5,10 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOMOC ON)
 
 find_package(Qt5 REQUIRED COMPONENTS
-	Core
-	Widgets
-	Multimedia
-	MultimediaWidgets
+    Core
+    Widgets
+    Multimedia
+    MultimediaWidgets
 )
 
 add_compile_options(-std=c++11)
