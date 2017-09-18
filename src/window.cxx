@@ -73,7 +73,6 @@ Window::~Window() {
     delete videopane;
     delete controller;
     delete seek;
-    delete systray;
 }
 
 void Window::setHeadless(bool headless) {
@@ -108,5 +107,6 @@ void Window::keyPressEvent(QKeyEvent *event) {
 }
 
 void Window::closeEvent(QCloseEvent *event) {
-	qApp->exit();
+    delete systray;
+    event->accept();
 }
