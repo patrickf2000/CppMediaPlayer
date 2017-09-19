@@ -1,5 +1,3 @@
-//volume_dial.hh
-//A dialog containing a dial in which the user can set the default volume.
 #pragma once
 
 #include <QDialog>

@@ -1,4 +1,3 @@
-//listwidget.cxx
 #include <QVBoxLayout>
 #include <QToolBar>
 #include <QIcon>

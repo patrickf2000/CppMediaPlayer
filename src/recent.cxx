@@ -1,5 +1,3 @@
-//recent.cxx
-//The source file for the recent files manager.
 #include <QString>
 #include <QVector>
 #include <QDir>

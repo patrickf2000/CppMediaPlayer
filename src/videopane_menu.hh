@@ -1,4 +1,3 @@
-//videopane_menu.hh
 #pragma once
 
 #include <QMenu>

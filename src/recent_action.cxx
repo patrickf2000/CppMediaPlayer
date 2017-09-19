@@ -1,5 +1,3 @@
-//recent_action.cxx
-//The source for a modified QAction
 #include <QAction>
 #include <QString>
 #include <QWidget>

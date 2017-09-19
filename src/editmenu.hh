@@ -1,5 +1,3 @@
-//editmenu.hh
-//The header file for the edit menu.
 #pragma once
 
 #include <QMenu>

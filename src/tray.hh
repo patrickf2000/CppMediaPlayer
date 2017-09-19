@@ -1,5 +1,3 @@
-//tray.hh
-//The tray icon for the media player
 #pragma once
 
 #include <QSystemTrayIcon>

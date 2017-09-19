@@ -1,5 +1,3 @@
-//window.cxx
-//The main window for odyssey-media-player
 #include <QKeyEvent>
 #include <QApplication>
 #include <QSplitter>

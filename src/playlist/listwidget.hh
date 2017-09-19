@@ -1,4 +1,3 @@
-//listwidget.hh
 #pragma once
 
 #include <QFrame>

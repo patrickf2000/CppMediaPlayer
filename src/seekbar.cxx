@@ -1,5 +1,3 @@
-//seekbar.cxx
-//Contains the seek slider.
 #include <QToolBar>
 #include <QSlider>
 #include <QLabel>

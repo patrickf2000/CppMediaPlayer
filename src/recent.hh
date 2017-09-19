@@ -1,5 +1,3 @@
-//recent.hh
-//Contains the controls to read and write the recent file.
 #pragma once
 
 #include <QString>

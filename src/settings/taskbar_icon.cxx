@@ -1,4 +1,3 @@
-//taskbar_icon.cxx
 #include <QSettings>
 #include <QMessageBox>
 

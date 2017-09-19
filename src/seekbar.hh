@@ -1,5 +1,3 @@
-//seekbar.hh
-//Contains the slider that indicates the position of the video.
 #pragma once
 
 #include <QToolBar>

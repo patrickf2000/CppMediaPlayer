@@ -1,5 +1,3 @@
-//filemenu.hh
-//The header file for the file menu.
 #pragma once
 
 #include <QMenu>

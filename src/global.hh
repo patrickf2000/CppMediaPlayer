@@ -1,5 +1,3 @@
-//global.hh
-//Contains global variables.
 #pragma once
 
 #include "window.hh"

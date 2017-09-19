@@ -1,5 +1,3 @@
-//viewmenu.cxx
-//The viewmenu.
 #include <QMenu>
 #include <QAction>
 #include <QPixmap>

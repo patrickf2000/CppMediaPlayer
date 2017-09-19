@@ -1,5 +1,3 @@
-//window.hh
-//The header file for the main window.
 #pragma once
 
 #include <QMainWindow>

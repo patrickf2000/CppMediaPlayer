@@ -1,5 +1,3 @@
-//get_settings.cxx
-//Gets program settings.
 #include <QSettings>
 
 #include "get_settings.hh"

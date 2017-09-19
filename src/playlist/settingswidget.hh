@@ -1,4 +1,3 @@
-//settingswidget.hh
 #pragma once
 
 #include <QFrame>

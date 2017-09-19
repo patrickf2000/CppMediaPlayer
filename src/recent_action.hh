@@ -1,5 +1,3 @@
-//recent_action.hh
-//A modified QAction.
 #pragma once
 
 #include <QAction>

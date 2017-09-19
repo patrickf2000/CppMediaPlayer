@@ -1,5 +1,3 @@
-//filemenu.cxx
-//The source file for the filemenu.
 #include <QMenu>
 #include <QAction>
 #include <QApplication>

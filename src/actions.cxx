@@ -1,5 +1,3 @@
-//actions.cxx
-//Global program actions.
 #include <QString>
 #include <QFileDialog>
 #include <QStringList>

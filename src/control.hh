@@ -1,5 +1,3 @@
-//control.hh
-//Contains the control buttons for the player.
 #pragma once
 
 #include <QToolBar>

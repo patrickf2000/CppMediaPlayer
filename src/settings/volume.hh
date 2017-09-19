@@ -1,5 +1,3 @@
-//volume.hh
-//The header file for the default volume settings.
 #pragma once
 
 #include <QWidget>

@@ -1,5 +1,3 @@
-//videopane.hh
-//The header for the main video widget
 #pragma once
 
 #include <QVideoWidget>

@@ -1,4 +1,3 @@
-//playlist.hh
 #pragma once
 
 #include <QWidget>

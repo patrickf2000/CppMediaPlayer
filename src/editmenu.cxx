@@ -1,5 +1,3 @@
-//editmenu.cxx
-//The source file for the program's edit menu.
 #include <QMenu>
 #include <QAction>
 #include <QPixmap>

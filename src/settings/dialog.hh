@@ -1,5 +1,3 @@
-//dialog.hh
-//The header file for the dialog window containing the program settings.
 #pragma once
 
 #include <QDialog>

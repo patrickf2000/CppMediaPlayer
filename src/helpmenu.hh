@@ -1,5 +1,3 @@
-//helpmenu.hh
-//The help menu for odyssey-media-player
 #pragma once
 
 #include <QMenu>

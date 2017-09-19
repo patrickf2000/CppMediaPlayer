@@ -1,5 +1,3 @@
-//helpmenu.cxx
-//The source file for the help menu.
 #include <QMenu>
 #include <QAction>
 #include <QMessageBox>

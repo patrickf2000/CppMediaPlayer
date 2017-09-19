@@ -1,4 +1,3 @@
-//settings.hh
 #pragma once
 
 struct PlaylistSettings {

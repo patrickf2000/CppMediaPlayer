@@ -1,5 +1,3 @@
-//volume_dial.cxx
-//A dialog containing a dial to set the default volume.
 #include <QDialog>
 #include <QVBoxLayout>
 #include <QHBoxLayout>

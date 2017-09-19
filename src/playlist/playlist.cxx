@@ -1,4 +1,3 @@
-//playlist.cxx
 #include <QVBoxLayout>
 
 #include "playlist.hh"

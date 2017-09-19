@@ -1,5 +1,3 @@
-//dialog.cxx
-//The settings dialog.
 #include <QDialog>
 #include <QVBoxLayout>
 

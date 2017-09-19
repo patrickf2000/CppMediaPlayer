@@ -1,5 +1,3 @@
-//control.cxx
-//The source file for the media control bar.
 #include <QToolBar>
 #include <QToolButton>
 #include <QLabel>

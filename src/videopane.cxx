@@ -1,5 +1,3 @@
-//videopane.cxx
-//The source file for the video pane.
 #include <QVideoWidget>
 #include <QMediaPlayer>
 #include <QMenu>

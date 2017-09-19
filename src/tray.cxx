@@ -1,5 +1,3 @@
-//tray.cxx
-//The source file for the system tray icon.
 #include <QSystemTrayIcon>
 #include <QMenu>
 #include <QAction>

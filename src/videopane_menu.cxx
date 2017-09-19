@@ -1,4 +1,3 @@
-//videopane_menu.cxx
 #include <QPixmap>
 
 #include "videopane_menu.hh"

@@ -1,4 +1,3 @@
-//taskbar_icon.hh
 #pragma once
 
 #include <QWidget>

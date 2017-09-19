@@ -1,5 +1,3 @@
-//viewmenu.hh
-//The header file for the viewmenu
 #pragma once
 
 #include <QMenu>

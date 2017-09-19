@@ -1,4 +1,3 @@
-//settingswidget.cxx
 #include <QPushButton>
 #include <QRadioButton>
 

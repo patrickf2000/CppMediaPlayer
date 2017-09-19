@@ -1,5 +1,3 @@
-//volume.cxx
-//The source file for the volume settings controls.
 #include <QWidget>
 #include <QHBoxLayout>
 #include <QLabel>

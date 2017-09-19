@@ -1,5 +1,3 @@
-//main.cxx
-//The main file for odyssey-media-player
 #include <QApplication>
 #include <QCoreApplication>
 #include <QPixmap>
