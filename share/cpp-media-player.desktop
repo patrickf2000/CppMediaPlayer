@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Media Player
-Exec=/usr/local/bin/cpp-media-player %U
+Exec=/usr/local/bin/CppMediaPlayer %U
 Icon=applications-multimedia
 Terminal=false
 MimeType=audio/mpeg;audio/mpeg3;video/avi;video/mp4
