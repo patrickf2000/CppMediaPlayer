@@ -96,20 +96,14 @@ Window::Window() {
     isHeadless = false;
 }
 
-Window::~Window() {
-    delete videopane;
-    delete controller;
-    delete seek;
-}
-
 void Window::setHeadless(bool headless) {
 	if (headless) {
-		menubar->hide();
+        this->menuBar()->hide();
 		playlist->hide();
 		controller->hide();
 		seek->hide();
 	} else {
-		menubar->show();
+        this->menuBar()->show();
 		playlist->show();
 		controller->show();
 		seek->show();

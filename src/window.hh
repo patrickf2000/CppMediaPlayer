@@ -42,7 +42,6 @@ class Window : public QMainWindow {
     Q_OBJECT
 public:
     Window();
-    ~Window();
     void setHeadless(bool headless);
 protected:
 	void keyPressEvent(QKeyEvent *event);
