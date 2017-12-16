@@ -29,11 +29,9 @@ path=src/settings
 SOURCES += \
 	$$path/dialog.cxx \
 	$$path/taskbar_icon.cxx \
-	$$path/volume.cxx \
-	$$path/volume_dial.cxx
+    $$path/volume.cxx
 	
 HEADERS += \
 	$$path/dialog.hh \
 	$$path/taskbar_icon.hh \
-	$$path/volume.hh \
-	$$path/volume_dial.hh
+    $$path/volume.hh

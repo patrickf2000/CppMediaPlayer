@@ -36,14 +36,11 @@ class Volume : public QWidget {
 	Q_OBJECT
 public:
 	Volume();
-	~Volume();
-	static void set(int val);
+    ~Volume();
 private:
 	QHBoxLayout *layout;
 	QLabel *infoLabel;
-	QSpinBox *spinner;
-	QPushButton *useDial;
+    QSpinBox *spinner;
 private slots:
 	void onValueChanged(int val);
-	void onDialClicked();
 };
