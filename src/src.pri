@@ -57,7 +57,8 @@ HEADERS += \
 	src/window.hh
 	
 RESOURCES += \
-	src/icons.qrc
+	src/icons.qrc \
+    $$PWD/rsc.qrc
 	
 include(playlist/playlist.pri)
 include(settings/settings.pri)

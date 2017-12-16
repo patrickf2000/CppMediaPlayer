@@ -28,6 +28,7 @@
 #include <QCoreApplication>
 #include <QPixmap>
 #include <QMediaContent>
+#include <settings.hh>
 
 #include "window.hh"
 #include "videopane.hh"
@@ -36,6 +37,10 @@
 Vars globalVars;
 
 int main(int argc, char *argv[]) {
+    Settings::registerApp("CppMediaPlayer");
+    Settings::setDefaultSettingsFile(":/rsc/settings.xml");
+    Settings::initPaths();
+
     QApplication app(argc,argv);
 
     QCoreApplication::setOrganizationName("CppMediaPlayer");

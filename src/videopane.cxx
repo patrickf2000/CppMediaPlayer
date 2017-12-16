@@ -30,10 +30,11 @@
 #include <QAction>
 #include <QMediaContent>
 #include <QUrl>
+#include <QVariant>
+#include <settings.hh>
 
 #include "videopane.hh"
 #include "seekbar.hh"
-#include "settings/get_settings.hh"
 #include "videopane_menu.hh"
 
 QMediaPlayer *VideoPane::player;
@@ -41,7 +42,7 @@ QMediaPlaylist *VideoPane::playlist;
 
 VideoPane::VideoPane() {
     player = new QMediaPlayer;
-    player->setVolume(Settings::getVolume());
+    player->setVolume(QVariant(Settings::getSetting("volume","10")).toInt());
     player->setVideoOutput(this);
     player->setPosition(0);
     

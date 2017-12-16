@@ -29,11 +29,11 @@
 #include <QLabel>
 #include <QSpinBox>
 #include <QPushButton>
-#include <QSettings>
+#include <QVariant>
+#include <settings.hh>
 
 #include "volume.hh"
 #include "volume_dial.hh"
-#include "get_settings.hh"
 
 Volume::Volume() {
 	layout = new QHBoxLayout;
@@ -45,7 +45,7 @@ Volume::Volume() {
 	spinner = new QSpinBox();
 	spinner->setRange(0,100);
 	spinner->setCursor(Qt::PointingHandCursor);
-	spinner->setValue(Settings::getVolume());
+    spinner->setValue(QVariant(Settings::getSetting("volume","10")).toInt());
 	layout->addWidget(spinner);
 	
 	useDial = new QPushButton("Use Dial");
@@ -63,8 +63,7 @@ Volume::~Volume() {
 }
 
 void Volume::set(int val) {
-    QSettings settings;
-    settings.setValue("volume",val);
+    Settings::writeSetting("volume",QVariant(val).toString());
 }
 
 void Volume::onValueChanged(int val) {
@@ -72,6 +71,6 @@ void Volume::onValueChanged(int val) {
 }
 
 void Volume::onDialClicked() {
-	VolumeDial().exec();
-	spinner->setValue(Settings::getVolume());
+    /*VolumeDial().exec();
+    spinner->setValue(Settings::getVolume());*/
 }

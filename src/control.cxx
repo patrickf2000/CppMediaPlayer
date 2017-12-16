@@ -29,11 +29,12 @@
 #include <QLabel>
 #include <QSlider>
 #include <QPixmap>
+#include <QVariant>
+#include <settings.hh>
 
 #include "control.hh"
 #include "actions.hh"
 #include "videopane.hh"
-#include "settings/get_settings.hh"
 
 ControlBar::ControlBar() {
     Open = new QToolButton;
@@ -45,7 +46,7 @@ ControlBar::ControlBar() {
 
     volume->setMinimum(0);
     volume->setMaximum(100);
-    volume->setValue(Settings::getVolume());
+    volume->setValue(QVariant(Settings::getSetting("volume","10")).toInt());
 
     QPixmap documentOpenIcon(":/icons/document-open.png");
     QPixmap playIcon(":/icons/media-playback-start.png");

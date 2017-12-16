@@ -34,7 +34,7 @@
 
 #include "volume_dial.hh"
 #include "volume.hh"
-#include "get_settings.hh"
+//#include "get_settings.hh"
 
 VolumeDial::VolumeDial() {
 	this->resize(400,200);
@@ -57,12 +57,12 @@ VolumeDial::VolumeDial() {
 	
 	dial = new QDial;
 	dial->setRange(0,100);
-	dial->setValue(Settings::getVolume());
+    //dial->setValue(Settings::getVolume());
 	controlsLayout->addWidget(dial);
 	
 	lcd = new QLCDNumber;
 	lcd->setToolTip("If you do not hit ok, the new volume will not be saved.");
-	lcd->display(Settings::getVolume());
+    //lcd->display(Settings::getVolume());
 	controlsLayout->addWidget(lcd);
 	
 	ok = new QPushButton("OK");

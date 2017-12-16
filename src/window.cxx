@@ -28,6 +28,8 @@
 #include <QApplication>
 #include <QSplitter>
 #include <QPixmap>
+#include <QVariant>
+#include <settings.hh>
 
 #include "window.hh"
 #include "videopane.hh"
@@ -39,7 +41,6 @@
 #include "viewmenu.hh"
 #include "helpmenu.hh"
 #include "actions.hh"
-#include "settings/get_settings.hh"
 
 Window::Window() {
     this->setWindowTitle("Media Player");
@@ -85,9 +86,11 @@ Window::Window() {
     controller = new ControlBar;
     this->addToolBar(Qt::BottomToolBarArea,controller);
 
-    if (Settings::showTaskbarIcon()) {
-        systray = new SysTray;
+    systray = new SysTray;
+    if (QVariant(Settings::getSetting("taskbar/icon","true")).toBool()) {
         systray->show();
+    } else {
+        systray->hide();
     }
     
     isHeadless = false;

@@ -24,18 +24,18 @@
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 // EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#include <QSettings>
 #include <QMessageBox>
+#include <QVariant>
+#include <settings.hh>
 
 #include "taskbar_icon.hh"
-#include "get_settings.hh"
 
 TaskbarIcon::TaskbarIcon() {
     layout = new QHBoxLayout;
     this->setLayout(layout);
 
     showIcon = new QCheckBox("Show taskbar icon:");
-    showIcon->setChecked(Settings::showTaskbarIcon());
+    showIcon->setChecked(QVariant(Settings::getSetting("taskbar/icon","true")).toBool());
     layout->addWidget(showIcon);
 
     connect(showIcon,&QCheckBox::toggled,this,&TaskbarIcon::onShowIconToggled);
@@ -47,12 +47,8 @@ TaskbarIcon::~TaskbarIcon() {
 }
 
 void TaskbarIcon::onShowIconToggled() {
-    QSettings settings;
-    if (showIcon->isChecked()) {
-        settings.setValue("taskbar_icon",true);
-    } else {
-        settings.setValue("taskbar_icon",false);
-    }
+    bool show = showIcon->isChecked();
+    Settings::writeSetting("taskbar/icon",QVariant(show).toString());
     QMessageBox msg;
     msg.setText("The new settings will take effect on the next program launch.");
     msg.exec();
