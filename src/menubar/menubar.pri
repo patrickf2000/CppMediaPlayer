@@ -6,7 +6,8 @@ SOURCES += \
     $$PWD/helpmenu.cxx \
     $$PWD/recent_action.cxx \
     $$PWD/recent.cxx \
-    $$PWD/viewmenu.cxx
+    $$PWD/viewmenu.cxx \
+    $$PWD/menubar.cxx
 
 HEADERS += \
     $$PWD/editmenu.hh \
@@ -14,4 +15,5 @@ HEADERS += \
     $$PWD/helpmenu.hh \
     $$PWD/recent_action.hh \
     $$PWD/recent.hh \
-    $$PWD/viewmenu.hh
+    $$PWD/viewmenu.hh \
+    $$PWD/menubar.hh

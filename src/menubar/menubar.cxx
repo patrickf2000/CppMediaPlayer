@@ -24,34 +24,6 @@
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 // EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#pragma once
+#include "menubar.hh"
 
-#include <QMainWindow>
-#include <QWidget>
-#include <QVBoxLayout>
-#include <QKeyEvent>
-
-#include "menubar/menubar.hh"
-#include "playlist/playlist.hh"
-#include "videopane.hh"
-#include "control.hh"
-#include "seekbar.hh"
-#include "tray.hh"
-
-class Window : public QMainWindow {
-    Q_OBJECT
-public:
-    Window();
-    void setHeadless(bool headless);
-protected:
-	void keyPressEvent(QKeyEvent *event);
-	void closeEvent(QCloseEvent *event);
-private:
-    MenuBar *menubar;
-    PlayList *playlist;
-    VideoPane *videopane;
-    ControlBar *controller;
-    SeekBar *seek;
-    SysTray *systray;
-    bool isHeadless;
-};
+void MenuBar::contextMenuEvent(QContextMenuEvent *) { }

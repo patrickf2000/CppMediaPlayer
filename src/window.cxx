@@ -54,15 +54,18 @@ Window::Window() {
     this->setWindowIcon(QIcon::fromTheme("applications-multimedia",winIcon));
 #endif
 
+    menubar = new MenuBar;
+    this->setMenuBar(menubar);
+
     FileMenu *fileMenu = new FileMenu;
     EditMenu *editMenu = new EditMenu;
     ViewMenu *viewMenu = new ViewMenu;
     HelpMenu *helpMenu = new HelpMenu;
 
-    this->menuBar()->addMenu(fileMenu);
-    this->menuBar()->addMenu(editMenu);
-    this->menuBar()->addMenu(viewMenu);
-    this->menuBar()->addMenu(helpMenu);
+    menubar->addMenu(fileMenu);
+    menubar->addMenu(editMenu);
+    menubar->addMenu(viewMenu);
+    menubar->addMenu(helpMenu);
     
     QSplitter *splitter = new QSplitter;
     this->setCentralWidget(splitter);
@@ -98,12 +101,12 @@ Window::Window() {
 
 void Window::setHeadless(bool headless) {
 	if (headless) {
-        this->menuBar()->hide();
+        menubar->hide();
 		playlist->hide();
 		controller->hide();
 		seek->hide();
 	} else {
-        this->menuBar()->show();
+        menubar->show();
 		playlist->show();
 		controller->show();
 		seek->show();
