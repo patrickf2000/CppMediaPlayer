@@ -24,37 +24,36 @@
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 // EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#include <QWidget>
-#include <QHBoxLayout>
-#include <QLabel>
-#include <QSpinBox>
 #include <QVariant>
 #include <settings.hh>
 
-#include "volume.hh"
+#include "settings_dialog.hh"
+#include "ui_settings_dialog.h"
 
-Volume::Volume() {
-	layout = new QHBoxLayout;
-	this->setLayout(layout);
-	
-	infoLabel = new QLabel("Choose default volume:");
-	layout->addWidget(infoLabel);
-	
-	spinner = new QSpinBox();
-	spinner->setRange(0,100);
-	spinner->setCursor(Qt::PointingHandCursor);
-    spinner->setValue(QVariant(Settings::getSetting("volume","10")).toInt());
-	layout->addWidget(spinner);
-	
-    connect(spinner,SIGNAL(valueChanged(int)),this,SLOT(onValueChanged(int)));
+SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent), ui(new Ui::SettingsDialog) {
+    ui->setupUi(this);
+
+    int volumeValue = QVariant(Settings::getSetting("volume","10")).toInt();
+    bool showTaskbar = QVariant(Settings::getSetting("taskbar/icon","true")).toBool();
+
+    ui->volumeSpinner->setValue(volumeValue);
+    ui->taskbarIcon->setChecked(showTaskbar);
 }
 
-Volume::~Volume() {
-	delete layout;
-	delete infoLabel;
-	delete spinner;
+SettingsDialog::~SettingsDialog() {
+    delete ui;
 }
 
-void Volume::onValueChanged(int val) {
-    Settings::writeSetting("volume",QVariant(val).toString());
+void SettingsDialog::on_saveButton_clicked() {
+    int volumeValue = ui->volumeSpinner->value();
+    bool showTaskbar = ui->taskbarIcon->isChecked();
+
+    Settings::writeSetting("volume",QVariant(volumeValue).toString());
+    Settings::writeSetting("taskbar/icon",QVariant(showTaskbar).toString());
+
+    this->close();
+}
+
+void SettingsDialog::on_cancelButton_clicked() {
+    this->close();
 }

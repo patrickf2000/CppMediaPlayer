@@ -27,11 +27,10 @@
 path=src/settings
 
 SOURCES += \
-	$$path/dialog.cxx \
-	$$path/taskbar_icon.cxx \
-    $$path/volume.cxx
+    $$path/settings_dialog.cxx
 	
 HEADERS += \
-	$$path/dialog.hh \
-	$$path/taskbar_icon.hh \
-    $$path/volume.hh
+    $$path/settings_dialog.hh
+
+FORMS += \
+    $$path/settings_dialog.ui

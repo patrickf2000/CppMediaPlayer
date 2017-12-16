@@ -29,7 +29,7 @@
 #include <QPixmap>
 
 #include "editmenu.hh"
-#include "settings/dialog.hh"
+#include "settings/settings_dialog.hh"
 
 EditMenu::EditMenu() {
 	this->setTitle("Edit");

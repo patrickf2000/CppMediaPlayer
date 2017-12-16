@@ -37,7 +37,7 @@
 Vars globalVars;
 
 int main(int argc, char *argv[]) {
-    Settings::registerApp("CppMediaPlayer");
+    Settings::registerApp("cpp-media-player");
     Settings::setDefaultSettingsFile(":/rsc/settings.xml");
     Settings::initPaths();
 
