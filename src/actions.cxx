@@ -30,8 +30,8 @@
 
 #include "actions.hh"
 #include "videopane.hh"
-#include "recent.hh"
-#include "filemenu.hh"
+#include "menubar/recent.hh"
+#include "menubar/filemenu.hh"
 #include "global.hh"
 
 bool Actions::maximized;

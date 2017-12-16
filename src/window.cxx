@@ -36,10 +36,10 @@
 #include "control.hh"
 #include "seekbar.hh"
 #include "tray.hh"
-#include "filemenu.hh"
-#include "editmenu.hh"
-#include "viewmenu.hh"
-#include "helpmenu.hh"
+#include "menubar/filemenu.hh"
+#include "menubar/editmenu.hh"
+#include "menubar/viewmenu.hh"
+#include "menubar/helpmenu.hh"
 #include "actions.hh"
 
 Window::Window() {

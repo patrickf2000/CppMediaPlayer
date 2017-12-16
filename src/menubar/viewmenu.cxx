@@ -28,31 +28,30 @@
 #include <QAction>
 #include <QPixmap>
 
-#include "editmenu.hh"
-#include "settings/settings_dialog.hh"
+#include "viewmenu.hh"
+#include "../actions.hh"
 
-EditMenu::EditMenu() {
-	this->setTitle("Edit");
-	
-    settings = new QAction("Settings",this);
+ViewMenu::ViewMenu() {
+    this->setTitle("View");
 
-    QPixmap settingsIcon(":/icons/preferences-system.png");
+    fullScreen = new QAction("Fullscreen",this);
+
+    QPixmap fullScreenIcon(":/icons/view-fullscreen.png");
 #ifdef NO_THEME_ICONS
-    settings->setIcon(settingsIcon);
+    fullScreen->setIcon(fullScreenIcon);
 #else
-    settings->setIcon(QIcon::fromTheme("preferences-system",settingsIcon));
+    fullScreen->setIcon(QIcon::fromTheme("view-fullscreen",fullScreenIcon));
 #endif
-	
-	connect(settings,SIGNAL(triggered(bool)),this,SLOT(onSettingsClicked()));
-	
-	this->addAction(settings);
+
+    connect(fullScreen,SIGNAL(triggered(bool)),this,SLOT(onFullScreenClicked()));
+
+    this->addAction(fullScreen);
 }
 
-EditMenu::~EditMenu() {
-	delete settings;
+ViewMenu::~ViewMenu() {
+    delete fullScreen;
 }
 
-void EditMenu::onSettingsClicked() {
-	SettingsDialog diag;
-	diag.exec();
+void ViewMenu::onFullScreenClicked() {
+	Actions::setWindowFullscreen();
 }

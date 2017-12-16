@@ -24,34 +24,27 @@
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 // EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#include <QMenu>
 #include <QAction>
-#include <QPixmap>
+#include <QString>
+#include <QWidget>
+#include <QMediaContent>
+#include <QUrl>
 
-#include "viewmenu.hh"
-#include "actions.hh"
+#include "recent_action.hh"
+#include "../videopane.hh"
+#include "recent.hh"
+#include "filemenu.hh"
 
-ViewMenu::ViewMenu() {
-    this->setTitle("View");
-
-    fullScreen = new QAction("Fullscreen",this);
-
-    QPixmap fullScreenIcon(":/icons/view-fullscreen.png");
-#ifdef NO_THEME_ICONS
-    fullScreen->setIcon(fullScreenIcon);
-#else
-    fullScreen->setIcon(QIcon::fromTheme("view-fullscreen",fullScreenIcon));
-#endif
-
-    connect(fullScreen,SIGNAL(triggered(bool)),this,SLOT(onFullScreenClicked()));
-
-    this->addAction(fullScreen);
+RecentAction::RecentAction(QString text, QWidget *parent) : QAction(parent) {
+	this->setText(text);
+	connect(this,SIGNAL(triggered(bool)),this,SLOT(onClicked()));
 }
 
-ViewMenu::~ViewMenu() {
-    delete fullScreen;
-}
-
-void ViewMenu::onFullScreenClicked() {
-	Actions::setWindowFullscreen();
+void RecentAction::onClicked() {
+	Recent recent;
+	recent.addRecent(this->text());
+	recent.write();
+	FileMenu::refreshRecentEntries();
+	VideoPane::player->setMedia(QMediaContent(QUrl::fromLocalFile(this->text())));
+	VideoPane::player->play();
 }

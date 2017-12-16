@@ -24,27 +24,35 @@
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 // EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#include <QMenu>
 #include <QAction>
-#include <QString>
-#include <QWidget>
-#include <QMediaContent>
-#include <QUrl>
+#include <QPixmap>
 
-#include "recent_action.hh"
-#include "videopane.hh"
-#include "recent.hh"
-#include "filemenu.hh"
+#include "editmenu.hh"
+#include "../settings/settings_dialog.hh"
 
-RecentAction::RecentAction(QString text, QWidget *parent) : QAction(parent) {
-	this->setText(text);
-	connect(this,SIGNAL(triggered(bool)),this,SLOT(onClicked()));
+EditMenu::EditMenu() {
+	this->setTitle("Edit");
+	
+    settings = new QAction("Settings",this);
+
+    QPixmap settingsIcon(":/icons/preferences-system.png");
+#ifdef NO_THEME_ICONS
+    settings->setIcon(settingsIcon);
+#else
+    settings->setIcon(QIcon::fromTheme("preferences-system",settingsIcon));
+#endif
+	
+	connect(settings,SIGNAL(triggered(bool)),this,SLOT(onSettingsClicked()));
+	
+	this->addAction(settings);
 }
 
-void RecentAction::onClicked() {
-	Recent recent;
-	recent.addRecent(this->text());
-	recent.write();
-	FileMenu::refreshRecentEntries();
-	VideoPane::player->setMedia(QMediaContent(QUrl::fromLocalFile(this->text())));
-	VideoPane::player->play();
+EditMenu::~EditMenu() {
+	delete settings;
+}
+
+void EditMenu::onSettingsClicked() {
+	SettingsDialog diag;
+	diag.exec();
 }

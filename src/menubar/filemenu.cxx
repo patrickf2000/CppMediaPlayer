@@ -32,7 +32,7 @@
 #include <QList>
 
 #include "filemenu.hh"
-#include "actions.hh"
+#include "../actions.hh"
 #include "recent.hh"
 #include "recent_action.hh"
 
