@@ -38,8 +38,9 @@ public:
     static void setDuration(qint64 len);
     static void setPosition(qint64 pos);
 private:
+    static QString timeStr(qint64 pos);
     static QSlider *seeker;
-    static QLabel *timeLabel;
+    static QLabel *posLabel, *timeLabel;
 private slots:
     void onSliderMoved(int pos);
 };
