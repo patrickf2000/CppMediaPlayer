@@ -30,12 +30,15 @@
 #include <QToolButton>
 #include <QLabel>
 #include <QSlider>
+#include <QContextMenuEvent>
 
 class ControlBar : public QToolBar {
     Q_OBJECT
 public:
     ControlBar();
     ~ControlBar();
+protected:
+    void contextMenuEvent(QContextMenuEvent *);
 private:
     QToolButton *Open, *Play, *Pause, *Stop;
     QLabel *volumeLabel;

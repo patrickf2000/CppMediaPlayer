@@ -87,6 +87,8 @@ ControlBar::~ControlBar() {
     delete volume;
 }
 
+void ControlBar::contextMenuEvent(QContextMenuEvent *) { }
+
 void ControlBar::onOpenClicked() {
     Actions::open();
 }
