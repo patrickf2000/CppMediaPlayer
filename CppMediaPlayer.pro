@@ -27,9 +27,17 @@
 QT = core widgets gui multimedia multimediawidgets
 TEMPLATE = app
 CONFIG += -std=c++11
-LIBS += -lsettings
+unix:LIBS += -lsettings
 
 MOC_DIR = ./build
 OBJECTS_DIR = ./build
 
 include(src/src.pri)
+
+win32 {
+    CONFIG(release, debug|release): LIBS += -L$$PWD/../libsettings/build/lib/release/ -lsettings
+    else:CONFIG(debug, debug|release): LIBS += -L$$PWD/../libsettings/build/lib/debug/ -lsettings
+
+    INCLUDEPATH += $$PWD/../libsettings/lib
+    DEPENDPATH += $$PWD/../libsettings/lib
+}
