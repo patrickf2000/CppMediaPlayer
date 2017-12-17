@@ -35,7 +35,12 @@
 #include "actions.hh"
 
 SysTray::SysTray() {
-    this->setIcon(QIcon::fromTheme("applications-multimedia"));
+    QPixmap trayIcon(":/icons/cpp-media-player.png");
+#ifdef NO_THEME_ICONS
+    this->setIcon(trayIcon);
+#else
+    this->setIcon(QIcon::fromTheme("applications-multimedia",trayIcon));
+#endif
 
     contextMenu = new QMenu;
     this->setContextMenu(contextMenu);
