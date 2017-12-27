@@ -28,12 +28,13 @@
 #include <QCoreApplication>
 #include <QPixmap>
 #include <QMediaContent>
-#include <settings.hh>
+#include <cpplib/settings.hh>
 
 #include "window.hh"
 #include "videopane.hh"
 #include "global.hh"
 
+using namespace CppLib;
 Vars globalVars;
 
 int main(int argc, char *argv[]) {

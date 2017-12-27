@@ -29,7 +29,7 @@
 #include <QSplitter>
 #include <QPixmap>
 #include <QVariant>
-#include <settings.hh>
+#include <cpplib/settings.hh>
 
 #include "window.hh"
 #include "videopane.hh"
@@ -41,6 +41,8 @@
 #include "menubar/viewmenu.hh"
 #include "menubar/helpmenu.hh"
 #include "actions.hh"
+
+using namespace CppLib;
 
 Window::Window() {
     this->setWindowTitle("Media Player");

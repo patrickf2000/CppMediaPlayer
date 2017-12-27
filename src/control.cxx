@@ -30,11 +30,13 @@
 #include <QSlider>
 #include <QPixmap>
 #include <QVariant>
-#include <settings.hh>
+#include <cpplib/settings.hh>
 
 #include "control.hh"
 #include "actions.hh"
 #include "videopane.hh"
+
+using namespace CppLib;
 
 ControlBar::ControlBar() {
     Open = new QToolButton;

@@ -31,11 +31,13 @@
 #include <QMediaContent>
 #include <QUrl>
 #include <QVariant>
-#include <settings.hh>
+#include <cpplib/settings.hh>
 
 #include "videopane.hh"
 #include "seekbar.hh"
 #include "videopane_menu.hh"
+
+using namespace CppLib;
 
 QMediaPlayer *VideoPane::player;
 QMediaPlaylist *VideoPane::playlist;

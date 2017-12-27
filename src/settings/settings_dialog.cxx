@@ -25,10 +25,12 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 // EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <QVariant>
-#include <settings.hh>
+#include <cpplib/settings.hh>
 
 #include "settings_dialog.hh"
 #include "ui_settings_dialog.h"
+
+using namespace CppLib;
 
 SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent), ui(new Ui::SettingsDialog) {
     ui->setupUi(this);
