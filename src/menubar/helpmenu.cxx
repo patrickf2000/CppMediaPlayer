@@ -61,6 +61,6 @@ void HelpMenu::onAboutClicked() {
     QMessageBox msg;
     msg.setText("CppMediaPlayer\n"
                 "A music and video player written in C++ using Qt.\n\n"
-                "Written by pdf4664 <pdf4664@outlook.com>");
+                "See: https://github.com/patrickf2000/CppMediaPlayer");
     msg.exec();
 }
