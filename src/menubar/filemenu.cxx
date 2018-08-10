@@ -47,16 +47,15 @@ FileMenu::FileMenu() {
 
     QPixmap openIcon(":/icons/document-open.png");
     QPixmap quitIcon(":/icons/window-close.png");
-#ifdef NO_THEME_ICONS
-    open->setIcon(openIcon);
-    quit->setIcon(quitIcon);
-#else
+
     open->setIcon(QIcon::fromTheme("document-open",openIcon));
     quit->setIcon(QIcon::fromTheme("window-close",quitIcon));
-#endif
 
-	connect(open,SIGNAL(triggered(bool)),this,SLOT(onOpenClicked()));
-	connect(quit,SIGNAL(triggered(bool)),qApp,SLOT(quit()));
+    connect(open,&QAction::triggered,this,&FileMenu::onOpenClicked);
+    connect(quit,&QAction::triggered,qApp,&QApplication::quit);
+
+    open->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_O));
+    quit->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_Q));
 	
 	refreshRecentEntries();
 
@@ -73,7 +72,7 @@ FileMenu::~FileMenu() {
 
 void FileMenu::refreshRecentEntries() {
 	QList<QAction *> menuActions = recent->actions();
-	if (not menuActions.empty()) {
+    if (!menuActions.empty()) {
 		for (int i = 0; i<menuActions.size(); i++) {
 			recent->removeAction(menuActions.at(i));
 		}
