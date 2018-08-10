@@ -29,6 +29,7 @@
 #include <QSplitter>
 #include <QPixmap>
 #include <QVariant>
+#include <QMenuBar>
 #include <cpplib/settings.hh>
 
 #include "window.hh"
@@ -46,28 +47,22 @@ using namespace CppLib;
 
 Window::Window() {
     this->setWindowTitle("Media Player");
-    this->resize(800,700);
+    this->resize(900,700);
     this->setAttribute(Qt::WA_QuitOnClose);
 
     QPixmap winIcon(":/icons/cpp-media-player.png");
-#ifdef NO_THEME_ICONS
-    this->setWindowIcon(winIcon);
-#else
     this->setWindowIcon(QIcon::fromTheme("applications-multimedia",winIcon));
-#endif
-
-    menubar = new MenuBar;
-    this->setMenuBar(menubar);
 
     FileMenu *fileMenu = new FileMenu;
     EditMenu *editMenu = new EditMenu;
     ViewMenu *viewMenu = new ViewMenu;
     HelpMenu *helpMenu = new HelpMenu;
 
-    menubar->addMenu(fileMenu);
-    menubar->addMenu(editMenu);
-    menubar->addMenu(viewMenu);
-    menubar->addMenu(helpMenu);
+    this->menuBar()->setContextMenuPolicy(Qt::PreventContextMenu);
+    this->menuBar()->addMenu(fileMenu);
+    this->menuBar()->addMenu(editMenu);
+    this->menuBar()->addMenu(viewMenu);
+    this->menuBar()->addMenu(helpMenu);
     
     QSplitter *splitter = new QSplitter;
     this->setCentralWidget(splitter);
@@ -103,12 +98,12 @@ Window::Window() {
 
 void Window::setHeadless(bool headless) {
 	if (headless) {
-        menubar->hide();
+        this->menuBar()->hide();
 		playlist->hide();
 		controller->hide();
 		seek->hide();
 	} else {
-        menubar->show();
+        this->menuBar()->show();
 		playlist->show();
 		controller->show();
 		seek->show();

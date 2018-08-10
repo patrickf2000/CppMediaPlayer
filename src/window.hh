@@ -31,7 +31,6 @@
 #include <QVBoxLayout>
 #include <QKeyEvent>
 
-#include "menubar/menubar.hh"
 #include "playlist/playlist.hh"
 #include "videopane.hh"
 #include "control.hh"
@@ -47,7 +46,6 @@ protected:
 	void keyPressEvent(QKeyEvent *event);
 	void closeEvent(QCloseEvent *event);
 private:
-    MenuBar *menubar;
     PlayList *playlist;
     VideoPane *videopane;
     ControlBar *controller;

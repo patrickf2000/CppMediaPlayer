@@ -18,7 +18,6 @@ set(MENUBAR_SRC
 	menubar/editmenu.cxx
 	menubar/filemenu.cxx
 	menubar/helpmenu.cxx
-	menubar/menubar.cxx
 	menubar/recent.cxx
 	menubar/recent_action.cxx
 	menubar/viewmenu.cxx
