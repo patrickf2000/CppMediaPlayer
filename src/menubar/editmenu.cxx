@@ -37,13 +37,9 @@ EditMenu::EditMenu() {
     settings = new QAction("Settings",this);
 
     QPixmap settingsIcon(":/icons/preferences-system.png");
-#ifdef NO_THEME_ICONS
-    settings->setIcon(settingsIcon);
-#else
     settings->setIcon(QIcon::fromTheme("preferences-system",settingsIcon));
-#endif
 	
-	connect(settings,SIGNAL(triggered(bool)),this,SLOT(onSettingsClicked()));
+    connect(settings,&QAction::triggered,this,&EditMenu::onSettingsClicked);
 	
 	this->addAction(settings);
 }
