@@ -51,3 +51,5 @@ target_link_libraries(CppMediaPlayer
 	Qt5::MultimediaWidgets
 	settings
 ) 
+
+install(TARGETS CppMediaPlayer DESTINATION /usr/local/bin)
