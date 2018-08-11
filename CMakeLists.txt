@@ -13,7 +13,13 @@ find_package(Qt5 REQUIRED COMPONENTS
 	MultimediaWidgets
 )
 
-find_library(settings REQUIRED)
+if (WIN32)
+    find_library(libsettings REQUIRED HINTS C:/Unix/bin)
+    link_directories(C:/Unix/bin)
+    include_directories(C:/Unix/include)
+else()
+    find_library(settings REQUIRED)
+endif()
 
 add_compile_options(-std=c++11)
 

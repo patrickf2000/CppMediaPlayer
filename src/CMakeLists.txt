@@ -41,7 +41,11 @@ set(SRC
 	${SETTINGS_SRC}
 )
 
-add_executable(CppMediaPlayer ${SRC})
+if (WIN32)
+	add_executable(CppMediaPlayer WIN32 ${SRC})
+else()
+	add_executable(CppMediaPlayer ${SRC})
+endif()
 
 target_link_libraries(CppMediaPlayer
 	Qt5::Core

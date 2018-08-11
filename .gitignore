@@ -9,3 +9,4 @@ qrc_odyssey-media-player.cpp
 /build
 *.directory
 *.user
+/winbin
