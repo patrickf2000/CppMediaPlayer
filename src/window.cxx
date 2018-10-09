@@ -66,6 +66,7 @@ Window::Window() {
     this->menuBar()->addMenu(helpMenu);
     
     playlist = new PlayList;
+    playlist->hide();
     this->addDockWidget(Qt::LeftDockWidgetArea,playlist);
 
     QWidget *videopanel = new QWidget;
