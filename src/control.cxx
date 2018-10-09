@@ -35,6 +35,7 @@
 #include "control.hh"
 #include "actions.hh"
 #include "videopane.hh"
+#include "seekbar.hh"
 
 using namespace CppLib;
 
@@ -43,6 +44,7 @@ ControlBar::ControlBar() {
     Play = new QToolButton;
     Pause = new QToolButton;
     Stop = new QToolButton;
+    SeekBar *seekbar = new SeekBar;
     volumeLabel = new QLabel("Volume:");
     volume = new QSlider(Qt::Horizontal);
 
@@ -76,8 +78,9 @@ ControlBar::ControlBar() {
     this->addWidget(Play);
     this->addWidget(Pause);
     this->addWidget(Stop);
-    this->addWidget(volumeLabel);
-    this->addWidget(volume);
+    this->addWidget(seekbar);
+    /*this->addWidget(volumeLabel);
+    this->addWidget(volume);*/
 }
 
 ControlBar::~ControlBar() {
