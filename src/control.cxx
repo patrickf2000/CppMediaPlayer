@@ -1,4 +1,4 @@
-// Copyright 2017 Patrick Flynn
+// Copyright 2018 Patrick Flynn
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
@@ -26,73 +26,49 @@
 // EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <QToolBar>
 #include <QToolButton>
-#include <QLabel>
-#include <QSlider>
 #include <QPixmap>
 #include <QVariant>
-#include <cpplib/settings.hh>
 
 #include "control.hh"
 #include "actions.hh"
 #include "videopane.hh"
 #include "seekbar.hh"
 
-using namespace CppLib;
-
 ControlBar::ControlBar() {
-    Open = new QToolButton;
-    Play = new QToolButton;
-    Pause = new QToolButton;
-    Stop = new QToolButton;
-    SeekBar *seekbar = new SeekBar;
-    volumeLabel = new QLabel("Volume:");
-    volume = new QSlider(Qt::Horizontal);
-
-    volume->setMinimum(0);
-    volume->setMaximum(100);
-    volume->setValue(QVariant(Settings::getSetting("volume","10")).toInt());
+    open = new QToolButton;
+    play = new QToolButton;
+    pause = new QToolButton;
+    stop = new QToolButton;
+    seekbar = new SeekBar;
 
     QPixmap documentOpenIcon(":/icons/document-open.svg");
     QPixmap playIcon(":/icons/media-playback-start.svg");
     QPixmap pauseIcon(":/icons/media-playback-pause.svg");
     QPixmap stopIcon(":/icons/media-playback-stop.svg");
-#ifdef NO_THEME_ICONS
-    Open->setIcon(documentOpenIcon);
-    Play->setIcon(playIcon);
-    Pause->setIcon(pauseIcon);
-    Stop->setIcon(stopIcon);
-#else
-    Open->setIcon(QIcon::fromTheme("document-open",documentOpenIcon));
-    Play->setIcon(QIcon::fromTheme("media-playback-start",playIcon));
-    Pause->setIcon(QIcon::fromTheme("media-playback-pause",pauseIcon));
-    Stop->setIcon(QIcon::fromTheme("media-playback-stop",stopIcon));
-#endif
 
-    connect(Open,SIGNAL(clicked(bool)),this,SLOT(onOpenClicked()));
-    connect(Play,SIGNAL(clicked(bool)),this,SLOT(onPlayClicked()));
-    connect(Pause,SIGNAL(clicked(bool)),this,SLOT(onPauseClicked()));
-    connect(Stop,SIGNAL(clicked(bool)),this,SLOT(onStopClicked()));
-    connect(volume,SIGNAL(valueChanged(int)),this,SLOT(onVolumeChanged()));
+    open->setIcon(QIcon::fromTheme("document-open",documentOpenIcon));
+    play->setIcon(QIcon::fromTheme("media-playback-start",playIcon));
+    pause->setIcon(QIcon::fromTheme("media-playback-pause",pauseIcon));
+    stop->setIcon(QIcon::fromTheme("media-playback-stop",stopIcon));
 
-    this->addWidget(Open);
-    this->addWidget(Play);
-    this->addWidget(Pause);
-    this->addWidget(Stop);
+    connect(open,&QToolButton::clicked,this,&ControlBar::onOpenClicked);
+    connect(play,&QToolButton::clicked,this,&ControlBar::onPlayClicked);
+    connect(pause,&QToolButton::clicked,this,&ControlBar::onPauseClicked);
+    connect(stop,&QToolButton::clicked,this,&ControlBar::onStopClicked);
+
+    this->addWidget(open);
+    this->addWidget(play);
+    this->addWidget(pause);
+    this->addWidget(stop);
     this->addWidget(seekbar);
-    /*this->addWidget(volumeLabel);
-    this->addWidget(volume);*/
 }
 
 ControlBar::~ControlBar() {
-    delete Open;
-    delete Play;
-    delete Pause;
-    delete Stop;
-    delete volumeLabel;
-    delete volume;
+    delete open;
+    delete play;
+    delete pause;
+    delete stop;
 }
-
-void ControlBar::contextMenuEvent(QContextMenuEvent *) { }
 
 void ControlBar::onOpenClicked() {
     Actions::open();
@@ -108,8 +84,4 @@ void ControlBar::onPauseClicked() {
 
 void ControlBar::onStopClicked() {
     VideoPane::player->stop();
-}
-
-void ControlBar::onVolumeChanged() {
-    VideoPane::player->setVolume(volume->value());
 }

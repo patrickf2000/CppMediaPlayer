@@ -1,4 +1,4 @@
-// Copyright 2017 Patrick Flynn
+// Copyright 2018 Patrick Flynn
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
@@ -28,25 +28,20 @@
 
 #include <QToolBar>
 #include <QToolButton>
-#include <QLabel>
-#include <QSlider>
-#include <QContextMenuEvent>
+
+#include "seekbar.hh"
 
 class ControlBar : public QToolBar {
     Q_OBJECT
 public:
     ControlBar();
     ~ControlBar();
-protected:
-    void contextMenuEvent(QContextMenuEvent *);
 private:
-    QToolButton *Open, *Play, *Pause, *Stop;
-    QLabel *volumeLabel;
-    QSlider *volume;
+    QToolButton *open, *play, *pause, *stop;
+    SeekBar *seekbar;
 private slots:
     void onOpenClicked();
     void onPlayClicked();
     void onPauseClicked();
     void onStopClicked();
-    void onVolumeChanged();
 };
