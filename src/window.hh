@@ -42,11 +42,12 @@ class Window : public QMainWindow {
 public:
     Window();
     void setHeadless(bool headless);
+    static void dspPlaylist();
 protected:
 	void keyPressEvent(QKeyEvent *event);
 	void closeEvent(QCloseEvent *event);
 private:
-    PlayList *playlist;
+    static PlayList *playlist;
     VideoPane *videopane;
     ControlBar *controller;
     SeekBar *seek;

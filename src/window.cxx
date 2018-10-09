@@ -44,6 +44,8 @@
 
 using namespace CppLib;
 
+PlayList *Window::playlist;
+
 Window::Window() {
     this->setWindowTitle("Media Player");
     this->resize(900,700);
@@ -104,6 +106,14 @@ void Window::setHeadless(bool headless) {
 		controller->show();
 		seek->show();
 	}
+}
+
+void Window::dspPlaylist() {
+    if (playlist->isVisible()) {
+        playlist->hide();
+    } else {
+        playlist->show();
+    }
 }
 
 void Window::keyPressEvent(QKeyEvent *event) {

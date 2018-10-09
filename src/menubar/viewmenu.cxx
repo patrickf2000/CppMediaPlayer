@@ -1,4 +1,4 @@
-// Copyright 2017 Patrick Flynn
+// Copyright 2018 Patrick Flynn
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
@@ -30,11 +30,13 @@
 
 #include "viewmenu.hh"
 #include "../actions.hh"
+#include "../window.hh"
 
 ViewMenu::ViewMenu() {
     this->setTitle("View");
 
     fullScreen = new QAction("Fullscreen",this);
+    playlist = new QAction("Show Playlist",this);
 
     QPixmap fullScreenIcon(":/icons/view-fullscreen.svg");
 #ifdef NO_THEME_ICONS
@@ -44,8 +46,10 @@ ViewMenu::ViewMenu() {
 #endif
 
     connect(fullScreen,SIGNAL(triggered(bool)),this,SLOT(onFullScreenClicked()));
+    connect(playlist,&QAction::triggered,this,&ViewMenu::onPlaylistClicked);
 
     this->addAction(fullScreen);
+    this->addAction(playlist);
 }
 
 ViewMenu::~ViewMenu() {
@@ -54,4 +58,8 @@ ViewMenu::~ViewMenu() {
 
 void ViewMenu::onFullScreenClicked() {
 	Actions::setWindowFullscreen();
+}
+
+void ViewMenu::onPlaylistClicked() {
+    Window::dspPlaylist();
 }

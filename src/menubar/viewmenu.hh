@@ -1,4 +1,4 @@
-// Copyright 2017 Patrick Flynn
+// Copyright 2018 Patrick Flynn
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
@@ -35,7 +35,8 @@ public:
     ViewMenu();
     ~ViewMenu();
 private:
-    QAction *fullScreen;
+    QAction *fullScreen, *playlist;
 private slots:
     void onFullScreenClicked();
+    void onPlaylistClicked();
 };
