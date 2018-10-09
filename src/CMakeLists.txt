@@ -41,8 +41,13 @@ set(SRC
 	${SETTINGS_SRC}
 )
 
+set(WIN_SRC
+    ${SRC}
+    appicon.rc
+)
+
 if (WIN32)
-	add_executable(CppMediaPlayer WIN32 ${SRC})
+        add_executable(CppMediaPlayer WIN32 ${WIN_SRC})
 else()
 	add_executable(CppMediaPlayer ${SRC})
 endif()
