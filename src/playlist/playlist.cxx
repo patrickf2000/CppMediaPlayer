@@ -24,20 +24,15 @@
 // WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 // EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#include <QVBoxLayout>
-
 #include "playlist.hh"
 #include "listwidget.hh"
 #include "settingswidget.hh"
 
 PlayList::PlayList() {
-	this->setFixedWidth(200);
-
-	QVBoxLayout *layout = new QVBoxLayout;
-	this->setLayout(layout);
+    this->setWindowTitle("Playlist");
 
 	tabs = new QTabWidget;
-	layout->addWidget(tabs);
+    this->setWidget(tabs);
 	
 	tabs->addTab(new PlayListWidget,"Playlist");
 	tabs->addTab(new PlaylistSettingsWidget,"Settings");

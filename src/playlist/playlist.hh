@@ -1,4 +1,4 @@
-// Copyright 2017 Patrick Flynn
+// Copyright 2018 Patrick Flynn
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
@@ -26,10 +26,10 @@
 // EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #pragma once
 
-#include <QWidget>
+#include <QDockWidget>
 #include <QTabWidget>
 
-class PlayList : public QWidget {
+class PlayList : public QDockWidget {
 	Q_OBJECT
 public:
 	PlayList();

@@ -1,4 +1,4 @@
-// Copyright 2017 Patrick Flynn
+// Copyright 2018 Patrick Flynn
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
@@ -26,7 +26,6 @@
 // EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <QKeyEvent>
 #include <QApplication>
-#include <QSplitter>
 #include <QPixmap>
 #include <QVariant>
 #include <QMenuBar>
@@ -64,18 +63,15 @@ Window::Window() {
     this->menuBar()->addMenu(viewMenu);
     this->menuBar()->addMenu(helpMenu);
     
-    QSplitter *splitter = new QSplitter;
-    this->setCentralWidget(splitter);
-    
     playlist = new PlayList;
-    splitter->addWidget(playlist);
+    this->addDockWidget(Qt::LeftDockWidgetArea,playlist);
 
     QWidget *videopanel = new QWidget;
     videopanel->setStyleSheet("background-color:black;");
     
     QVBoxLayout *videolayout = new QVBoxLayout;
     videopanel->setLayout(videolayout);
-    splitter->addWidget(videopanel);
+    this->setCentralWidget(videopanel);
 
     videopane = new VideoPane;
     videolayout->addWidget(videopane);
