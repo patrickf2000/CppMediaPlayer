@@ -36,10 +36,10 @@ VideoPaneMenu::VideoPaneMenu() {
     pause = new QAction("Pause",this);
     stop = new QAction("Stop",this);
 
-    QPixmap documentOpenIcon(":/icons/document-open.png");
-    QPixmap playIcon(":/icons/media-playback-start.png");
-    QPixmap pauseIcon(":/icons/media-playback-pause.png");
-    QPixmap stopIcon(":/icons/media-playback-stop.png");
+    QPixmap documentOpenIcon(":/icons/document-open.svg");
+    QPixmap playIcon(":/icons/media-playback-start.svg");
+    QPixmap pauseIcon(":/icons/media-playback-pause.svg");
+    QPixmap stopIcon(":/icons/media-playback-stop.svg");
 #ifdef NO_THEME_ICONS
     open->setIcon(documentOpenIcon);
     play->setIcon(playIcon);

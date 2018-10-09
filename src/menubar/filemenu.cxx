@@ -45,8 +45,8 @@ FileMenu::FileMenu() {
 	recent = new QMenu("Recent");
     quit = new QAction("Quit",this);
 
-    QPixmap openIcon(":/icons/document-open.png");
-    QPixmap quitIcon(":/icons/window-close.png");
+    QPixmap openIcon(":/icons/document-open.svg");
+    QPixmap quitIcon(":/icons/window-close.svg");
 
     open->setIcon(QIcon::fromTheme("document-open",openIcon));
     quit->setIcon(QIcon::fromTheme("window-close",quitIcon));

@@ -65,10 +65,10 @@ PlayListWidget::PlayListWidget() {
     clearItems->setToolTip("Clear the playlist.");
     play->setToolTip("Play the items below.");
 
-    QPixmap addItemIcon(":/icons/list-add.png");
-    QPixmap removeItemIcon(":/icons/window-close.png");
-    QPixmap clearItemsIcon(":/icons/edit-clear.png");
-    QPixmap playIcon(":/icons/media-playback-start.png");
+    QPixmap addItemIcon(":/icons/list-add.svg");
+    QPixmap removeItemIcon(":/icons/window-close.svg");
+    QPixmap clearItemsIcon(":/icons/edit-clear.svg");
+    QPixmap playIcon(":/icons/media-playback-start.svg");
 #ifdef NO_THEME_ICONS
     addItem->setIcon(addItemIcon);
     removeItem->setIcon(removeItemIcon);
@@ -108,10 +108,10 @@ PlayListWidget::PlayListWidget() {
     saveList->setToolTip("Save the playlist.");
     saveListAs->setToolTip("Save the current playlist as...");
 
-    QPixmap newListIcon(":/icons/document-new.png");
-    QPixmap openListIcon(":/icons/document-open.png");
-    QPixmap saveListIcon(":/icons/document-save.png");
-    QPixmap saveListAsIcon(":/icons/document-save-as.png");
+    QPixmap newListIcon(":/icons/document-new.svg");
+    QPixmap openListIcon(":/icons/document-open.svg");
+    QPixmap saveListIcon(":/icons/document-save.svg");
+    QPixmap saveListAsIcon(":/icons/document-save-as.svg");
 #ifdef NO_THEME_ICONS
     newList->setIcon(newListIcon);
     openList->setIcon(openListIcon);

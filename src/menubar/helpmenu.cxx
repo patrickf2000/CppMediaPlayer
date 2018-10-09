@@ -38,7 +38,7 @@ HelpMenu::HelpMenu() {
     about = new QAction("About",this);
     aboutQt = new QAction("About Qt",this);
 
-    QPixmap aboutIcon(":/icons/help-about.png");
+    QPixmap aboutIcon(":/icons/help-about.svg");
 #ifdef NO_THEME_ICONS
     about->setIcon(aboutIcon);
 #else

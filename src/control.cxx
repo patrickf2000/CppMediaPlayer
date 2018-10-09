@@ -50,10 +50,10 @@ ControlBar::ControlBar() {
     volume->setMaximum(100);
     volume->setValue(QVariant(Settings::getSetting("volume","10")).toInt());
 
-    QPixmap documentOpenIcon(":/icons/document-open.png");
-    QPixmap playIcon(":/icons/media-playback-start.png");
-    QPixmap pauseIcon(":/icons/media-playback-pause.png");
-    QPixmap stopIcon(":/icons/media-playback-stop.png");
+    QPixmap documentOpenIcon(":/icons/document-open.svg");
+    QPixmap playIcon(":/icons/media-playback-start.svg");
+    QPixmap pauseIcon(":/icons/media-playback-pause.svg");
+    QPixmap stopIcon(":/icons/media-playback-stop.svg");
 #ifdef NO_THEME_ICONS
     Open->setIcon(documentOpenIcon);
     Play->setIcon(playIcon);

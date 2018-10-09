@@ -35,7 +35,7 @@
 #include "actions.hh"
 
 SysTray::SysTray() {
-    QPixmap trayIcon(":/icons/cpp-media-player.png");
+    QPixmap trayIcon(":/icons/cpp-media-player.svg");
 #ifdef NO_THEME_ICONS
     this->setIcon(trayIcon);
 #else
@@ -52,11 +52,11 @@ SysTray::SysTray() {
     hideWindow = new QAction("Hide Window",contextMenu);
     quit = new QAction("Quit",contextMenu);
 
-    QPixmap documentOpenIcon(":/icons/document-open.png");
-    QPixmap playIcon(":/icons/media-playback-start.png");
-    QPixmap pauseIcon(":/icons/media-playback-pause.png");
-    QPixmap stopIcon(":/icons/media-playback-stop.png");
-    QPixmap quitIcon(":/icons/window-close.png");
+    QPixmap documentOpenIcon(":/icons/document-open.svg");
+    QPixmap playIcon(":/icons/media-playback-start.svg");
+    QPixmap pauseIcon(":/icons/media-playback-pause.svg");
+    QPixmap stopIcon(":/icons/media-playback-stop.svg");
+    QPixmap quitIcon(":/icons/window-close.svg");
 #ifdef NO_THEME_ICONS
     play->setIcon(playIcon);
     pause->setIcon(pauseIcon);

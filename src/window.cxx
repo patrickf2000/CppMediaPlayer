@@ -50,7 +50,7 @@ Window::Window() {
     this->resize(900,700);
     this->setAttribute(Qt::WA_QuitOnClose);
 
-    QPixmap winIcon(":/icons/cpp-media-player.png");
+    QPixmap winIcon(":/icons/cpp-media-player.svg");
     this->setWindowIcon(QIcon::fromTheme("applications-multimedia",winIcon));
 
     FileMenu *fileMenu = new FileMenu;

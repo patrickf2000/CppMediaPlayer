@@ -36,7 +36,7 @@ EditMenu::EditMenu() {
 	
     settings = new QAction("Settings",this);
 
-    QPixmap settingsIcon(":/icons/preferences-system.png");
+    QPixmap settingsIcon(":/icons/preferences-system.svg");
     settings->setIcon(QIcon::fromTheme("preferences-system",settingsIcon));
 	
     connect(settings,&QAction::triggered,this,&EditMenu::onSettingsClicked);

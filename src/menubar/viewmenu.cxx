@@ -36,7 +36,7 @@ ViewMenu::ViewMenu() {
 
     fullScreen = new QAction("Fullscreen",this);
 
-    QPixmap fullScreenIcon(":/icons/view-fullscreen.png");
+    QPixmap fullScreenIcon(":/icons/view-fullscreen.svg");
 #ifdef NO_THEME_ICONS
     fullScreen->setIcon(fullScreenIcon);
 #else
