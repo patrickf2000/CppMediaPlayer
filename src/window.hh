@@ -1,4 +1,4 @@
-// Copyright 2017 Patrick Flynn
+// Copyright 2018 Patrick Flynn
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
@@ -34,7 +34,6 @@
 #include "playlist/playlist.hh"
 #include "videopane.hh"
 #include "control.hh"
-#include "seekbar.hh"
 #include "tray.hh"
 
 class Window : public QMainWindow {
@@ -50,7 +49,6 @@ private:
     static PlayList *playlist;
     VideoPane *videopane;
     ControlBar *controller;
-    SeekBar *seek;
     SysTray *systray;
     bool isHeadless;
 };

@@ -33,9 +33,6 @@
 
 #include "window.hh"
 #include "videopane.hh"
-#include "control.hh"
-#include "seekbar.hh"
-#include "tray.hh"
 #include "menubar/filemenu.hh"
 #include "menubar/editmenu.hh"
 #include "menubar/viewmenu.hh"
@@ -79,9 +76,6 @@ Window::Window() {
     videopane = new VideoPane;
     videolayout->addWidget(videopane);
 
-    seek = new SeekBar;
-    videolayout->addWidget(seek);
-
     controller = new ControlBar;
     this->addToolBar(Qt::BottomToolBarArea,controller);
 
@@ -100,12 +94,10 @@ void Window::setHeadless(bool headless) {
         this->menuBar()->hide();
 		playlist->hide();
 		controller->hide();
-		seek->hide();
 	} else {
         this->menuBar()->show();
 		playlist->show();
 		controller->show();
-		seek->show();
 	}
 }
 
