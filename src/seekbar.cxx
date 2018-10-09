@@ -40,9 +40,6 @@ SeekBar::SeekBar() {
     seeker = new QSlider(Qt::Horizontal);
     timeLabel = new QLabel();
 
-    posLabel->setStyleSheet("color:white;");
-    timeLabel->setStyleSheet("color:white;");
-
     seeker->setMinimum(0);
     seeker->setMaximum(0);
 
