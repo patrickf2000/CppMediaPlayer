@@ -1,4 +1,4 @@
-// Copyright 2017 Patrick Flynn
+// Copyright 2018 Patrick Flynn
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
@@ -36,11 +36,7 @@
 
 SysTray::SysTray() {
     QPixmap trayIcon(":/icons/cpp-media-player.svg");
-#ifdef NO_THEME_ICONS
-    this->setIcon(trayIcon);
-#else
     this->setIcon(QIcon::fromTheme("applications-multimedia",trayIcon));
-#endif
 
     contextMenu = new QMenu;
     this->setContextMenu(contextMenu);
@@ -57,28 +53,21 @@ SysTray::SysTray() {
     QPixmap pauseIcon(":/icons/media-playback-pause.svg");
     QPixmap stopIcon(":/icons/media-playback-stop.svg");
     QPixmap quitIcon(":/icons/window-close.svg");
-#ifdef NO_THEME_ICONS
-    play->setIcon(playIcon);
-    pause->setIcon(pauseIcon);
-    stop->setIcon(stopIcon);
-    open->setIcon(documentOpenIcon);
-    quit->setIcon(quitIcon);
-#else
+
     play->setIcon(QIcon::fromTheme("media-playback-start",playIcon));
     pause->setIcon(QIcon::fromTheme("media-playback-pause",pauseIcon));
     stop->setIcon(QIcon::fromTheme("media-playback-stop",stopIcon));
     open->setIcon(QIcon::fromTheme("document-open",documentOpenIcon));
     quit->setIcon(QIcon::fromTheme("window-close",quitIcon));
-#endif
 
     hideWindow->setCheckable(true);
 
-    connect(play,SIGNAL(triggered(bool)),this,SLOT(onPlayClicked()));
-    connect(pause,SIGNAL(triggered(bool)),this,SLOT(onPauseClicked()));
-    connect(stop,SIGNAL(triggered(bool)),this,SLOT(onStopClicked()));
-    connect(open,SIGNAL(triggered(bool)),this,SLOT(onOpenClicked()));
-    connect(hideWindow,SIGNAL(triggered(bool)),this,SLOT(onHideWindowClicked()));
-    connect(quit,SIGNAL(triggered(bool)),qApp,SLOT(quit()));
+    connect(play,&QAction::triggered,this,&SysTray::onPlayClicked);
+    connect(pause,&QAction::triggered,this,&SysTray::onPauseClicked);
+    connect(stop,&QAction::triggered,this,&SysTray::onStopClicked);
+    connect(open,&QAction::triggered,this,&SysTray::onOpenClicked);
+    connect(hideWindow,&QAction::triggered,this,&SysTray::onHideWindowClicked);
+    connect(quit,&QAction::triggered,qApp,&QApplication::quit);
 
     contextMenu->addAction(play);
     contextMenu->addAction(pause);
