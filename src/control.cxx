@@ -28,7 +28,8 @@
 #include <QToolButton>
 #include <QPixmap>
 #include <QVariant>
-#include <iostream>
+#include <QWidgetAction>
+#include <QMenu>
 
 #include "control.hh"
 #include "actions.hh"
@@ -43,6 +44,21 @@ ControlBar::ControlBar() {
     back = new QToolButton;
     next = new QToolButton;
     seekbar = new SeekBar;
+    volume = new QToolButton;
+
+    volume->setPopupMode(QToolButton::InstantPopup);
+    QMenu *menu = new QMenu();
+    volume->setMenu(menu);
+
+    volumeSlider = new QSlider;
+    volumeSlider->setMinimum(0);
+    volumeSlider->setMaximum(100);
+    volumeSlider->setValue(VideoPane::player->volume());
+    connect(volumeSlider,SIGNAL(valueChanged(int)),this,SLOT(onVolumeSliderClicked(int)));
+
+    QWidgetAction *va = new QWidgetAction(menu);
+    va->setDefaultWidget(volumeSlider);
+    menu->addAction(va);
 
     QPixmap documentOpenIcon(":/icons/document-open.svg");
     QPixmap playIcon(":/icons/media-playback-start.svg");
@@ -50,6 +66,7 @@ ControlBar::ControlBar() {
     QPixmap stopIcon(":/icons/media-playback-stop.svg");
     QPixmap backIcon(":/icons/media-seek-backward.svg");
     QPixmap nextIcon(":/icons/media-seek-forward.svg");
+    QPixmap volumeIcon(":/icons/audio-volume-high.svg");
 
     open->setIcon(QIcon::fromTheme("document-open",documentOpenIcon));
     play->setIcon(QIcon::fromTheme("media-playback-start",playIcon));
@@ -57,6 +74,7 @@ ControlBar::ControlBar() {
     stop->setIcon(QIcon::fromTheme("media-playback-stop",stopIcon));
     back->setIcon(QIcon::fromTheme("media-seek-backward",backIcon));
     next->setIcon(QIcon::fromTheme("media-seek-forward",nextIcon));
+    volume->setIcon(QIcon::fromTheme("audio-volume-high",volumeIcon));
 
     connect(open,&QToolButton::clicked,this,&ControlBar::onOpenClicked);
     connect(play,&QToolButton::clicked,this,&ControlBar::onPlayClicked);
@@ -72,6 +90,7 @@ ControlBar::ControlBar() {
     this->addWidget(back);
     this->addWidget(next);
     this->addWidget(seekbar);
+    this->addWidget(volume);
 }
 
 ControlBar::~ControlBar() {
@@ -81,6 +100,7 @@ ControlBar::~ControlBar() {
     delete stop;
     delete back;
     delete next;
+    delete volume;
 }
 
 void ControlBar::onOpenClicked() {
@@ -105,4 +125,8 @@ void ControlBar::onBackClicked() {
 
 void ControlBar::onNextClicked() {
     Actions::seekForward();
+}
+
+void ControlBar::onVolumeSliderClicked(int val) {
+    VideoPane::player->setVolume(val);
 }

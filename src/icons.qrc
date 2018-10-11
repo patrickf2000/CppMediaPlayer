@@ -16,5 +16,6 @@
         <file>icons/window-close.svg</file>
         <file>icons/media-seek-backward.svg</file>
         <file>icons/media-seek-forward.svg</file>
+        <file>icons/audio-volume-high.svg</file>
     </qresource>
 </RCC>

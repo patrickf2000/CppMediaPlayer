@@ -28,6 +28,7 @@
 
 #include <QToolBar>
 #include <QToolButton>
+#include <QSlider>
 
 #include "seekbar.hh"
 
@@ -39,6 +40,8 @@ public:
 private:
     QToolButton *open, *play, *pause, *stop, *back, *next;
     SeekBar *seekbar;
+    QToolButton *volume;
+    QSlider *volumeSlider;
 private slots:
     void onOpenClicked();
     void onPlayClicked();
@@ -46,4 +49,5 @@ private slots:
     void onStopClicked();
     void onBackClicked();
     void onNextClicked();
+    void onVolumeSliderClicked(int val);
 };
