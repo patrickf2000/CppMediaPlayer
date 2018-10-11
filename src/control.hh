@@ -37,11 +37,13 @@ public:
     ControlBar();
     ~ControlBar();
 private:
-    QToolButton *open, *play, *pause, *stop;
+    QToolButton *open, *play, *pause, *stop, *back, *next;
     SeekBar *seekbar;
 private slots:
     void onOpenClicked();
     void onPlayClicked();
     void onPauseClicked();
     void onStopClicked();
+    void onBackClicked();
+    void onNextClicked();
 };

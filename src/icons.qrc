@@ -14,5 +14,7 @@
         <file>icons/preferences-system.svg</file>
         <file>icons/view-fullscreen.svg</file>
         <file>icons/window-close.svg</file>
+        <file>icons/media-seek-backward.svg</file>
+        <file>icons/media-seek-forward.svg</file>
     </qresource>
 </RCC>
