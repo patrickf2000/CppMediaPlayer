@@ -45,6 +45,8 @@ SysTray::SysTray() {
     pause = new QAction("Pause",contextMenu);
     stop = new QAction("Stop",contextMenu);
     open = new QAction("Open",contextMenu);
+    back = new QAction("Back",contextMenu);
+    forward = new QAction("Forward",contextMenu);
     hideWindow = new QAction("Hide Window",contextMenu);
     quit = new QAction("Quit",contextMenu);
 
@@ -52,12 +54,16 @@ SysTray::SysTray() {
     QPixmap playIcon(":/icons/media-playback-start.svg");
     QPixmap pauseIcon(":/icons/media-playback-pause.svg");
     QPixmap stopIcon(":/icons/media-playback-stop.svg");
+    QPixmap backIcon(":/icons/media-seek-backward.svg");
+    QPixmap forwardIcon(":/icons/media-seek-forward.svg");
     QPixmap quitIcon(":/icons/window-close.svg");
 
     play->setIcon(QIcon::fromTheme("media-playback-start",playIcon));
     pause->setIcon(QIcon::fromTheme("media-playback-pause",pauseIcon));
     stop->setIcon(QIcon::fromTheme("media-playback-stop",stopIcon));
     open->setIcon(QIcon::fromTheme("document-open",documentOpenIcon));
+    back->setIcon(QIcon::fromTheme("media-seek-backward",backIcon));
+    forward->setIcon(QIcon::fromTheme("media-seek-forward",forwardIcon));
     quit->setIcon(QIcon::fromTheme("window-close",quitIcon));
 
     hideWindow->setCheckable(true);
@@ -66,12 +72,16 @@ SysTray::SysTray() {
     connect(pause,&QAction::triggered,this,&SysTray::onPauseClicked);
     connect(stop,&QAction::triggered,this,&SysTray::onStopClicked);
     connect(open,&QAction::triggered,this,&SysTray::onOpenClicked);
+    connect(back,&QAction::triggered,this,&SysTray::onBackClicked);
+    connect(forward,&QAction::triggered,this,&SysTray::onForwardClicked);
     connect(hideWindow,&QAction::triggered,this,&SysTray::onHideWindowClicked);
     connect(quit,&QAction::triggered,qApp,&QApplication::quit);
 
     contextMenu->addAction(play);
     contextMenu->addAction(pause);
     contextMenu->addAction(stop);
+    contextMenu->addAction(back);
+    contextMenu->addAction(forward);
     contextMenu->addAction(open);
     contextMenu->addAction(hideWindow);
     contextMenu->addAction(quit);
@@ -103,6 +113,14 @@ void SysTray::onOpenClicked() {
     if (was) {
         globalVars.window->hide();
     }
+}
+
+void SysTray::onBackClicked() {
+    Actions::seekBack();
+}
+
+void SysTray::onForwardClicked() {
+    Actions::seekForward();
 }
 
 void SysTray::onHideWindowClicked() {

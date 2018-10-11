@@ -37,12 +37,15 @@ public:
     ~SysTray();
 private:
     QMenu *contextMenu;
-    QAction *play, *pause, *stop, *open, *hideWindow, *quit;
+    QAction *play, *pause, *stop, *open;
+    QAction *back, *forward, *hideWindow, *quit;
     bool isWindowMaximized;
 private slots:
     void onPlayClicked();
     void onPauseClicked();
     void onStopClicked();
     void onOpenClicked();
+    void onBackClicked();
+    void onForwardClicked();
     void onHideWindowClicked();
 };
