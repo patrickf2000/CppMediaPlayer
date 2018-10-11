@@ -100,11 +100,9 @@ void ControlBar::onStopClicked() {
 }
 
 void ControlBar::onBackClicked() {
-    int index = VideoPane::player->playlist()->currentIndex();
-    VideoPane::player->playlist()->setCurrentIndex(index-1);
+    Actions::seekBack();
 }
 
 void ControlBar::onNextClicked() {
-    int index = VideoPane::player->playlist()->currentIndex();
-    VideoPane::player->playlist()->setCurrentIndex(index+1);
+    Actions::seekForward();
 }

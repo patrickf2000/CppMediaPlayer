@@ -1,4 +1,4 @@
-// Copyright 2017 Patrick Flynn
+// Copyright 2018 Patrick Flynn
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
@@ -30,6 +30,8 @@ class Actions {
 public:
     static void open();
     static void setWindowFullscreen();
+    static void seekBack();
+    static void seekForward();
 private:
 	static bool maximized;
 };

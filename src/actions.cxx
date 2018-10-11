@@ -1,4 +1,4 @@
-// Copyright 2017 Patrick Flynn
+// Copyright 2018 Patrick Flynn
 //
 // Redistribution and use in source and binary forms, with or without modification,
 // are permitted provided that the following conditions are met:
@@ -65,4 +65,14 @@ void Actions::setWindowFullscreen() {
         maximized = globalVars.window->isMaximized();
         globalVars.window->showFullScreen();
     }
+}
+
+void Actions::seekBack() {
+    int index = VideoPane::player->playlist()->currentIndex();
+    VideoPane::player->playlist()->setCurrentIndex(index-1);
+}
+
+void Actions::seekForward() {
+    int index = VideoPane::player->playlist()->currentIndex();
+    VideoPane::player->playlist()->setCurrentIndex(index+1);
 }
